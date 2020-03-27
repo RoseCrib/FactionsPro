@@ -8,9 +8,9 @@ softdepend: ["AntiSpamPro"]
 extensions: [sqlite3]
 commands:
   f:
-    description: use /f help for all parameters
+    description: folosește comanda /f help pentru vedea comenzile
     permission: f.command
 permissions:
   f.command:
     default: true
-    description: "Allow use of all faction commands"
+    description: "Permiteți utilizarea tuturor comenzilor"
