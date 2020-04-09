@@ -1,6 +1,6 @@
 name: FactionsPro
 author: RoseCrib
-description: Plugin pentru servere de factions
+description: Plugin pentru servere de factiune
 version: 1.3.20
 main: FactionsPro\FactionMain
 api: [3.0.0,4.0.0]
