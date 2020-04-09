@@ -2,7 +2,7 @@ name: FactionsPro
 author: RoseCrib
 description: Plugin pentru servere de factions
 version: 1.3.20
-main: RoseCrib\FactionMain
+main: FactionsPro\FactionMain
 api: [3.0.0,4.0.0]
 softdepend: ["AntiSpamPro"]
 extensions: [sqlite3]
