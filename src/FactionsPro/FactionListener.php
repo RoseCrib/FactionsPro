@@ -28,7 +28,7 @@ class FactionListener implements Listener {
 
         if ($this->plugin->motdWaiting($player)) {
             if (time() - $this->plugin->getMOTDTime($player) > 30) {
-                $PCE->getPlayer()->sendMessage($this->plugin->formatMessage("Timed out. Please use /f desc again."));
+                $PCE->getPlayer()->sendMessage($this->plugin->formatMessage("Timp Expirat. Te rog utilizează /f desc din nou."));
                 $this->plugin->db->query("DELETE FROM motdrcv WHERE player='$player';");
                 $PCE->setCancelled(true);
                 return true;
@@ -37,7 +37,7 @@ class FactionListener implements Listener {
                 $faction = $this->plugin->getPlayerFaction($player);
                 $this->plugin->setMOTD($faction, $player, $motd);
                 $PCE->setCancelled(true);
-                $PCE->getPlayer()->sendMessage($this->plugin->formatMessage("Successfully updated the faction description. Type /f info.", true));
+                $PCE->getPlayer()->sendMessage($this->plugin->formatMessage("Ai modificat cu succes descrierea facțiuni. Scrie /f info.", true));
             }
             return true;
         }
@@ -49,7 +49,7 @@ class FactionListener implements Listener {
                     if ($this->plugin->getPlayerFaction($fP->getName()) == $faction) {
                         if ($this->plugin->getServer()->getPlayer($fP->getName())) {
                             $PCE->setCancelled(true);
-                            $this->plugin->getServer()->getPlayer($fP->getName())->sendMessage(TextFormat::DARK_GREEN . "[$faction]" . TextFormat::BLUE . " $player: " . TextFormat::AQUA . $msg);
+                            $this->plugin->getServer()->getPlayer($fP->getName())->sendMessage(TextFormat::YELLOW . "[$faction]" . TextFormat::GRAY . " $player: " . TextFormat::WHITE . $msg);
                         }
                     }
                 }
@@ -63,8 +63,8 @@ class FactionListener implements Listener {
                     if ($this->plugin->areAllies($this->plugin->getPlayerFaction($fP->getName()), $faction)) {
                         if ($this->plugin->getServer()->getPlayer($fP->getName())) {
                             $PCE->setCancelled(true);
-                            $this->plugin->getServer()->getPlayer($fP->getName())->sendMessage(TextFormat::DARK_GREEN . "[$faction]" . TextFormat::BLUE . " $player: " . TextFormat::AQUA . $msg);
-                            $PCE->getPlayer()->sendMessage(TextFormat::DARK_GREEN . "[$faction]" . TextFormat::BLUE . " $player: " . TextFormat::AQUA . $msg);
+                            $this->plugin->getServer()->getPlayer($fP->getName())->sendMessage(TextFormat::YELLOW . "[$faction]" . TextFormat::GRAY . " $player: " . TextFormat::WHITE . $msg);
+                            $PCE->getPlayer()->sendMessage(TextFormat::YELLOW . "[$faction]" . TextFormat::GRAY . " $player: " . TextFormat::WHITE . $msg);
                         }
                     }
                 }
@@ -101,7 +101,7 @@ class FactionListener implements Listener {
                 return;
             } else {
                 $event->setCancelled(true);
-                $event->getPlayer()->sendMessage($this->plugin->formatMessage("You cannot break blocks here. This is already a property of a faction. Type /f plotinfo for details."));
+                $event->getPlayer()->sendMessage($this->plugin->formatMessage("Nu poti sparge blocuri aici. Aceasta proprietate este a unei facțiuni. Scrie /f plotinfo pentru detalii."));
                 return;
             }
         }
@@ -116,7 +116,7 @@ class FactionListener implements Listener {
                 return;
             } else {
                 $event->setCancelled(true);
-                $event->getPlayer()->sendMessage($this->plugin->formatMessage("You cannot place blocks here. This is already a property of a faction. Type /f plotinfo for details."));
+                $event->getPlayer()->sendMessage($this->plugin->formatMessage("Nu poti sparge blocuri aici. Aceasta proprietate este a unei facțiuni. Scrie /f plotinfo pentru detalii."));
                 return;
             }
         }
