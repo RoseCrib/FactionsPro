@@ -1,7 +1,7 @@
 ---
 branches: master
 projects:
-  FactionsProRose:
+  FactionsPro:
     path: ""
     model: default
     icon: factionspro.png
